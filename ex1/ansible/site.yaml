@@ -1,0 +1,61 @@
+---
+- hosts: localhost
+  become: True
+
+  tasks:
+    - name: Update apt cache
+      apt: 
+        name: "*"
+        update_cache: True
+
+    - name: Install dependencies
+      apt:
+        name:
+          - "apt-transport-https"
+          - "ca-certificates"
+          - "curl"
+          - "software-properties-common"
+          - "python3-pip"
+          - "python3-setuptools"
+
+    - name: Add Docker GPG apt key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu bionic stable
+        state: present
+
+    - name: Update apt and install docker-ce
+      apt:
+        name: "docker-ce"
+        update_cache: True
+        state: present
+
+    - name: Install Docker module for Python
+      pip:
+        name: "docker"
+        state: present
+
+    - name: Start and enable Docker
+      service: 
+        name: "docker"
+        state: started
+        enabled: True
+
+    - name: Configure Docker daemon
+      copy:
+        content: { "log-driver": "syslog" }
+        dest: /etc/docker/daemon.json
+#The "Notify" resource calls the specified handler only if changes are made do the daemon      
+      notify:
+        - Restart docker
+
+#Handlers are essentially tasks that will run if called after all previous tasks are run
+  handlers:
+    - name: Restart docker
+      service: 
+        name: docker
+        state: restarted
