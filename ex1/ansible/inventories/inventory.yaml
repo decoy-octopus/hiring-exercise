@@ -1,0 +1,6 @@
+#This file tells Ansible that the commands must be run in the local host
+all:
+  hosts:
+    localhost:
+      vars:
+        ansible_connection: local
