@@ -38,7 +38,7 @@ if __name__ == "__main__":
         citytemperaturetest = resposta.json().get("main").get("temp")
         cityhumiditytest = resposta.json().get("main").get("humidity")
 
-        print("source = openweathermap city = {} description = {} temp = {} humidity = {}".format(citynametest, citydescriptiontest, citytemperaturetest, cityhumiditytest))
+        print("Current weather data (source: https://openweathermap.org/)\nCity: {};\nDescription: {};\nTemperature: {}ºC;\nHumidity: {}%;".format(citynametest, citydescriptiontest, citytemperaturetest, cityhumiditytest))
     #Should there be anything wrong with the variables (invalid city name or API key) the app will display the message below
     else:
 
