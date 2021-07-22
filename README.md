@@ -19,13 +19,14 @@
 
 ### 1.1 Install and configure Docker, change logging driver to syslog
 #### Pre-requisites:
-	- A Linux VM (<a href=https://ubuntu.com/download/desktop>Ubuntu</a> was used in my setup);
-	- Ansible (Instrucions on how to install Ansible <a href=https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html> here</a>)
+
+- A Linux VM (<a href=https://ubuntu.com/download/desktop>Ubuntu</a> was used in my setup);
+- Ansible (Instrucions on how to install Ansible <a href=https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html> here</a>)
 
 #### Files used:
-_site.yaml
-inventory.yaml
-ansible.cfg_
+_site.yaml_;
+_inventory.yaml_;
+_ansible.cfg_;
 
 #### Execution
 Once Ansible is properly installed, and the files above were transferred to the target host, the first thing we need to do is run the following command: 
