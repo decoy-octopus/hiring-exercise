@@ -1,0 +1,32 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  #Name given to the cronjob
+  name: get-weather-cronjob
+#Specifications of the cronjob
+spec:
+  #This tells Kubernetes that the code below should be run every 5 minutes
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            #Name of the container inside the pod
+          - name: get-weather-container-cj
+            #Name of image used for creating desired container
+            image: douglasfneves/getweather:dev
+            #Providing container with environment variables
+            env:
+            - name: OWM_API_KEY
+              valueFrom:
+              #This is being used so that the clear text key is not transmitted to the pod
+                secretKeyRef:
+                  name: api-key
+                  key: secret_api_key
+            - name: OWM_CITY
+              valueFrom: 
+                configMapKeyRef:
+                  name: city-name
+                  key: chosen-city
+          restartPolicy: OnFailure

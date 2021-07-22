@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: getweatherdeployment
+  labels:
+    description: deployment_description
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      description: selector_description
+  template:
+    metadata:
+      labels:
+        description: template_description
+    spec:
+      containers:
+        - image: douglasfneves/getweather:dev
+          name: getweatherappcontainer

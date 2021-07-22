@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  # nome do Pod
+  name: get-weather-pod
+spec:
+  containers:
+# nome do container dentro do Pod
+    - name: get-weather-container-inside-pod
+  # nome da imagem (se voce nao especifica um repositorio raiz especifico de onde obter as imagens, o k8s usa o Dockerhub por definicao)
+      image: douglasfneves/getweather:dev
+  # passando as variaveis de ambiente para o container
+      env:
+      - name: OWM_API_KEY
+        valueFrom:
+          secretKeyRef:
+            name: api-key
+            key: secret_api_key
+      - name: OWM_CITY
+        valueFrom: 
+          configMapKeyRef:
+            name: city-name
+            key: chosen-city
+  restartPolicy: Never
