@@ -23,7 +23,7 @@
 - A Linux VM (<a href=https://ubuntu.com/download/desktop>Ubuntu</a> was used in my setup);
 - Ansible (Instrucions on how to install Ansible <a href=https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html> here</a>)
 
-###### _Note:_ FFor security reasons, so as not to grant **unrestricted** root level privilege to the docker user, we did not add it to the privileged docker group created by Docker. Privilege escalation is granted, when necessary, at playbook level, or via sudo command.
+###### _Note:_ For security reasons, so as not to grant **unrestricted** root level privilege to the docker user, we did not add it to the privileged docker group created by Docker. Privilege escalation is granted, when necessary, at playbook level, or via sudo command.
 
 
 #### Files used:
