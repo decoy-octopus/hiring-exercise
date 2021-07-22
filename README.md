@@ -67,8 +67,12 @@ As mentioned in the previous chapter, the program is dockerized and can be run b
 ###### _Note:_ Replace xxxx with your OpenWeather API key and zzzz with the city of your choice
 
 The output should be similar to this:
+```
+Current weather data (source: https://openweathermap.org/)
+City: Bratislava, Description: clear sky, Temperature: 14.6ºC, Humidity: 80%
+```
 
-
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 
 ## Exercise 2
