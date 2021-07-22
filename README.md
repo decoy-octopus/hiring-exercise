@@ -104,7 +104,6 @@ d) Once this is done you can check the logs to verify if the cronjob is indeed r
 
   The output should be similar to this:
 ```
-NAME                	SCHEDULE  		SUSPEND 	ACTIVE 		LAST SCHEDULE 	AGE
-
-get-weather-cronjob		*/1 * * * *		False 		0  			12s 			152m
+NAME                  SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   AGE
+get-weather-cronjob   */1 * * * *   False     0        12s             3h1m
 ```
