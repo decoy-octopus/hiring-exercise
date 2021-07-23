@@ -23,6 +23,9 @@
 - A Linux VM (<a href=https://ubuntu.com/download/desktop>Ubuntu</a> was used in my setup);
 - Ansible (Instrucions on how to install Ansible <a href=https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html> here</a>)
 
+###### _Note:_ FFor security reasons, so as not to grant **unrestricted** root level privilege to the docker user, we did not add it to the privileged docker group created by Docker. Privilege escalation is granted, when necessary, at playbook level, or via sudo command.
+
+
 #### Files used:
 _site.yaml_;
 _inventory.yaml_;
@@ -88,10 +91,10 @@ _kubernetes-getweather-cj.yaml_
 #### Execution
 To run the app using Kubernetes, these procedures should be followed:
 
-a) Manually and securely provide the pod with your API key:
+a) Create a Kubernetes Secret (use imperative commands) to safely store your API key, which we will then present to the pod as an environment variable:
 ```kubectl create secret generic api-key --from-literal=secret_api_key=xxxx```
 
-b) Manually create a configmap so that you can provide the pod with the city for which you would like to check the weather:
+b) Create a Kubernetes ConfigMap (for convenience, use imperative commands), so so that you can provide the pod with the city for which you would like to check the weather:
 ```kubectl create configmap city-name --from-literal=chosen-city=zzzz```
 
 Should you like to check the weather for a different city, run command
