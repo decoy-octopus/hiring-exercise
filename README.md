@@ -102,6 +102,7 @@ a) Create a Kubernetes Secret (use imperative commands) to safely store your API
 
 ```kubectl create secret generic api-key --from-literal=secret_api_key=xxxx```
 
+
 b) Create a Kubernetes ConfigMap (for convenience, use imperative commands), so so that you can provide the pod with the city for which you would like to check the weather:
 
 ```kubectl create configmap city-name --from-literal=chosen-city=zzzz```
@@ -113,6 +114,7 @@ Should you like to check the weather for a different city, run command
 and then create a new configmap with the city of your choice.
 ###### _Note 1:_ Replace xxxx with your OpenWeather API key and zzzz with the city of your choice
 
+
 c) Issue the command below to apply the manifest:
 
 ```kubectl apply -f kubernetes-getweather-cj```
@@ -121,14 +123,15 @@ c) Issue the command below to apply the manifest:
 ```
 % kubectl apply -f kubernetes-getweather-cj.yaml 
 error: unable to recognize "kubernetes-getweather-cj.yaml": no matches for kind "CronJob" in version "batch/v1"
-
 ```
+
+
 d) Once this is done you can check the logs to verify if the cronjob is indeed running by issuing command
 
 ```kubectl logs cj```
 
   The output should be similar to this:
-  
+
 ```
 NAME                  SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   AGE
 get-weather-cronjob   */1 * * * *   False     0        12s             3h1m
