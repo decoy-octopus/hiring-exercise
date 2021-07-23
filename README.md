@@ -3,17 +3,18 @@
 ## Overview of files included in the exercises
 ```
 ├── ex1
-│ ├── ansible
-│ │ ├── ansible.cfg
-│ │ ├── inventories
-│ │ │ └── inventory.yaml
-│ │ └── site.yaml
-│ └── app
-│ ├── Dockerfile
-│ ├── getweather
-│ └── requirements.txt
+│   ├── ansible
+│   │   ├── ansible.cfg
+│   │   ├── inventories
+│   │   │   └── inventory.yaml
+│   │   └── site.yaml
+│   └── app
+│       ├── Dockerfile
+│       ├── getweather
+│       └── requirements.txt
 └── ex2
-└── kubernetes-getweather-cj.yaml
+    ├── kubernetes-getweather-cj-v1beta1.yaml
+    └── kubernetes-getweather-cj.yaml
 ```
 ## Exercise 1
 
@@ -43,15 +44,21 @@ Ansible will go through the tasks and it should take a little while due to some 
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 To verify if docker is installed by running command
+
  ```docker -v```
+
 The expected result should be something like:
+
 ```Docker version 20.10.7, build f0df350```
 
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 To verify Docker's logging driver, use command
+
 ```sudo docker info | grep Logging```
+
 The expect result should be
+
 ```Logging Driver: syslog```
 
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -119,7 +126,6 @@ c) Issue the command below to apply the manifest:
 
 ```kubectl apply -f kubernetes-getweather-cj```
 ###### *** Note: if you get the error message below, please use file _kubernetes-getweather-cj-v1beta1.yaml_
-
 ```
 % kubectl apply -f kubernetes-getweather-cj.yaml 
 error: unable to recognize "kubernetes-getweather-cj.yaml": no matches for kind "CronJob" in version "batch/v1"
