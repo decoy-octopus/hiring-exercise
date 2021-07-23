@@ -86,7 +86,9 @@ Instead of kubernetizing the network scanner app, _getweather_ was kubernetized.
 - Docker Desktop, Minikube, or any other local Kubernetes install;
 
 #### Files used:
-_kubernetes-getweather-cj.yaml_
+_kubernetes-getweather-cj.yaml_;
+_kubernetes-getweather-cj-v1beta1.yaml_***;
+
 
 #### Execution
 To run the app using Kubernetes, these procedures should be followed:
@@ -105,7 +107,12 @@ and then create a new configmap with the city of your choice.
 c) Issue the command below to apply the manifest:
 ```kubectl apply -f kubernetes-getweather-cj```
 
+###### *** Note: if you get the error message below, please use file _kubernetes-getweather-cj-v1beta1.yaml_
 
+```
+% kubectl apply -f kubernetes-getweather-cj.yaml 
+error: unable to recognize "kubernetes-getweather-cj.yaml": no matches for kind "CronJob" in version "batch/v1"
+```
 d) Once this is done you can check the logs to verify if the cronjob is indeed running by issuing command
 ```kubectl logs cj```
 
