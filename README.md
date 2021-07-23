@@ -28,10 +28,13 @@
 
 #### Files used:
 _site.yaml_;
+
 _inventory.yaml_;
+
 _ansible.cfg_;
 
 #### Execution
+
 Once Ansible is properly installed, and the files above were transferred to the target host, the first thing we need to do is run the following command: 
 ```ansible-playbook -i "inventory.yaml" -c local site.yaml```
 
@@ -70,6 +73,7 @@ As mentioned in the previous chapter, the program is dockerized and can be run b
 ###### _Note:_ Replace xxxx with your OpenWeather API key and zzzz with the city of your choice
 
 The output should be similar to this:
+
 ```
 Current weather data (source: https://openweathermap.org/)
 City: Bratislava, Description: clear sky, Temperature: 14.6ºC, Humidity: 80%
@@ -87,6 +91,7 @@ Instead of kubernetizing the network scanner app, _getweather_ was kubernetized.
 
 ### Files used:
 _kubernetes-getweather-cj.yaml_
+
 _kubernetes-getweather-cj-v1beta1.yaml_***
 
 
@@ -94,29 +99,36 @@ _kubernetes-getweather-cj-v1beta1.yaml_***
 To run the app using Kubernetes, these procedures should be followed:
 
 a) Create a Kubernetes Secret (use imperative commands) to safely store your API key, which we will then present to the pod as an environment variable:
+
 ```kubectl create secret generic api-key --from-literal=secret_api_key=xxxx```
 
 b) Create a Kubernetes ConfigMap (for convenience, use imperative commands), so so that you can provide the pod with the city for which you would like to check the weather:
+
 ```kubectl create configmap city-name --from-literal=chosen-city=zzzz```
 
 Should you like to check the weather for a different city, run command
+
 ```kubectl delete configmap city-name```
+
 and then create a new configmap with the city of your choice.
 ###### _Note 1:_ Replace xxxx with your OpenWeather API key and zzzz with the city of your choice
 
 c) Issue the command below to apply the manifest:
-```kubectl apply -f kubernetes-getweather-cj```
 
+```kubectl apply -f kubernetes-getweather-cj```
 ###### *** Note: if you get the error message below, please use file _kubernetes-getweather-cj-v1beta1.yaml_
 
 ```
 % kubectl apply -f kubernetes-getweather-cj.yaml 
 error: unable to recognize "kubernetes-getweather-cj.yaml": no matches for kind "CronJob" in version "batch/v1"
+
 ```
 d) Once this is done you can check the logs to verify if the cronjob is indeed running by issuing command
+
 ```kubectl logs cj```
 
   The output should be similar to this:
+  
 ```
 NAME                  SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   AGE
 get-weather-cronjob   */1 * * * *   False     0        12s             3h1m
