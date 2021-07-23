@@ -82,15 +82,15 @@ City: Bratislava, Description: clear sky, Temperature: 14.6ºC, Humidity: 80%
 
 Instead of kubernetizing the network scanner app, _getweather_ was kubernetized.
 
-#### Pre-requisites:
+### Pre-requisites:
 - Docker Desktop, Minikube, or any other local Kubernetes install;
 
-#### Files used:
-_kubernetes-getweather-cj.yaml_;
-_kubernetes-getweather-cj-v1beta1.yaml_***;
+### Files used:
+_kubernetes-getweather-cj.yaml_
+_kubernetes-getweather-cj-v1beta1.yaml_***
 
 
-#### Execution
+### Execution
 To run the app using Kubernetes, these procedures should be followed:
 
 a) Create a Kubernetes Secret (use imperative commands) to safely store your API key, which we will then present to the pod as an environment variable:
