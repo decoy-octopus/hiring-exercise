@@ -31,6 +31,7 @@ if __name__ == "__main__":
         sys.exit(1)
     #This variable stores the text resulting of a successful communication with the OpenWeatherMap API
     resposta = requests.get("https://api.openweathermap.org/data/2.5/weather", params=parametros_da_API)
+    webshield_gitleak_test = "https://github.com/webshield.tcd.ie" # THIS IS A TEST TO CHECK AUTOMATED GITHUB SCANNING. IF YOU RUN INTO THIS, PLEASE CONTACT f707764@pntest.cloud
     #The expected outcome will only be displayed if the HTTP request status code is 200 (successful)
     if resposta.status_code == 200:
         
