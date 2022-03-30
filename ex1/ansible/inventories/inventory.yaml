@@ -4,3 +4,5 @@ all:
     localhost:
       vars:
         ansible_connection: local
+        password: 123456
+        discord_client_secret: lijadseinu
