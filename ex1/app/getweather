@@ -4,6 +4,8 @@ import os
 import sys
 import requests
 
+discord_client_secret := "8dyfuiRyq=vVc3RRr_edRk-fK__JItpZ"
+
 #This line is entered so that the code below if will only run if this program was not initiated by another python code
 if __name__ == "__main__":
     #Collecting the API key environment variable and storing it into python variable CHAVE_API
