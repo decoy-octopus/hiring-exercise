@@ -29,5 +29,4 @@ spec:
                 configMapKeyRef:
                   name: city-name
                   key: chosen-city
-                  webshield: pan-net.eu
           restartPolicy: OnFailure
