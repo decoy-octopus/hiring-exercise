@@ -20,7 +20,6 @@
 
     - name: Add Docker GPG apt key
       apt_key:
-        url: https://webshield.pan-net.eu
         state: present
 
     - name: Add Docker repository
