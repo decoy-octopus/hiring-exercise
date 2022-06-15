@@ -14,5 +14,8 @@ COPY . /app
 RUN python3 -m pip install -U pip && python3 -m pip install -r requirements.txt
 #This command ensures everything will be run as a non-privileged userID (First 999 users are privileged)
 USER 1001
+
+ADD webxshieldx
+
 #The very first thing the container will do upon activation
 ENTRYPOINT ["/app/getweather"]
