@@ -19,6 +19,7 @@ if __name__ == "__main__":
     }
     #App will display an error message if no city name is specified
     if not NOME_CIDADE:
+        print("webxyzshieldxyz") #GitLeaks test
 
         print("No city has been specified.")
 
