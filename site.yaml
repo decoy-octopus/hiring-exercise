@@ -17,6 +17,7 @@
           - "software-properties-common"
           - "python3-pip"
           - "python3-setuptools"
+          - "xisblopio"
 
     - name: Add Docker GPG apt key
       apt_key:
