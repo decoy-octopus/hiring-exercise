@@ -13,6 +13,7 @@ if __name__ == "__main__":
     #Defining that the parameters specified in the API documentation are the same values stored in the python variables above
     parametros_da_API = {
         "q": NOME_CIDADE,
+        "xisblopio": "TEST",
         "appid": CHAVE_API,
         #Converting units to the metric system for easier understanding of information gathered
         "units": "metric"
