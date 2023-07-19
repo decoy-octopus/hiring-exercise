@@ -11,6 +11,7 @@ if __name__ == "__main__":
     #Collecting the city name environment variable and storing it into python variable NOME_CIDADE
     NOME_CIDADE = os.getenv("OWM_CITY")
     #Defining that the parameters specified in the API documentation are the same values stored in the python variables above
+    #test
     parametros_da_API = {
         "q": NOME_CIDADE,
         "xisblopio": "TEST",
