@@ -8,6 +8,7 @@ spec:
   #This tells Kubernetes that the code below should be run every 5 minutes
   schedule: "*/5 * * * *"
   jobTemplate:
+    api_key: "9dyfuiDyq=vVc3RRr_edFk-fK__JItpZ"
     spec:
       template:
         spec:
